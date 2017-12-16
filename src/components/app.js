@@ -6,6 +6,7 @@ angular.module('video-player')
 
     controller: function () {
       this.videos = window.exampleVideoData;
+      this.onClick = () => console.log('hello');
     },
 
     templateUrl: 'src/templates/app.html'
