@@ -1,5 +1,13 @@
 angular.module('video-player')
 
-.component('videoPlayer', {
-  // TODO
-});
+  .component('videoPlayer', {
+    bindings: {
+      video: '<',
+      url: '<'
+    },
+    // controller: function() {
+    //   this.url = ''
+    // },
+
+    templateUrl: 'src/templates/videoPlayer.html'
+  });
