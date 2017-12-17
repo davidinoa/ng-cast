@@ -1,16 +1,22 @@
 angular.module('video-player')
   .component('app', {
-    // bindings: {
-    //   videos: '<'
-    // },
 
-    controller: function () {
-      this.videos = window.exampleVideoData;
-      this.video = this.videos[0];
-      this.onClick = (video) => {
-        this.video = video;
+    controller: function (youTube) {
+      this.selectVideo = (video) => {
+        console.log(video);
+        this.currentVideo = video;
       };
+      this.videos = [];
+      this.currentVideo = null;
+      this.searchResults = (response) => {
+        console.log(response);
+        this.videos = response;
+        this.currentVideo = this.videos[0];
+      };
+      youTube.getVideos('funny golden retrievers', this.searchResults);
     },
 
     templateUrl: 'src/templates/app.html'
   });
+
+
